@@ -34,8 +34,38 @@ main:
 	
 	la $t4, jat #carrega endereço de base jat
 	
+	li $s5, 1	#k
+	
 	#seção 4: teste se k esta no intervalo [0,3], caso contrério default 
 	
-	#seção 5: calcula o ebdereço de jat [k]
+	sltiu $t1,$s5,4
+	beq $t1,0,default
+	
+	default: j exit
+	
+	#seção 5: calcula o endereço de jat [k]
+	
+	add $t1,$s5,$s5 #t1=2*k
+	add $t1,$t1,$t1 #t1=4*k
+	add $t1,$t1,$t4 #t1=end.base + 4*k
+	lw $t0,0($t1)
+	
+	jr $to
 	
 	#seção 6: desvia para o endereço de jat[k]
+	
+	LO:	add $s0,$s3,$s4
+		j exit
+	L1:	add $s0,$s1,$s2
+		add $s0,$s0,$s5 
+		j exit
+	L2:	sub $s0,$s1,$s2
+		j exit
+	L3:	sub $s0,$s1,$s2
+		j exit
+	default: sub $s0,$s3,$s4
+		 add $s0,$s0,$s2
+		 j exit
+	#seção 7: codifica as alternativas de execução
+	
+	exit:
