@@ -1,0 +1,18 @@
+#Raiz quadrada
+.data 0x10008000
+natan: .word 7
+teste: .space 1
+
+
+
+.text
+.globl main
+
+main: #inicio
+
+
+
+
+
+
+exit: #FIM
