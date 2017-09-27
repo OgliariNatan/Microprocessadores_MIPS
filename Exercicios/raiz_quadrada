@@ -1,8 +1,7 @@
 #Raiz quadrada
 .data 0x10008000
 num: .word 2
-res: .space 8
-
+res: .space  
 
 
 .text
@@ -12,9 +11,12 @@ main: #inicio
 	lw $a0, num
 	jal raizquadrada
 	
+	
+	
 	j exit
 
-raizquadrada: 
+raizquadrada:
+	lw $t0,res
 	
 
 
