@@ -1,7 +1,7 @@
 #Raiz quadrada
 .data 0x10008000
 num: .word 2
-res: .space 
+res: .space 8
 
 
 
