@@ -8,7 +8,7 @@ res: .space
 .globl main
 
 main: #inicio
-	lw $a0, num
+	lw $a0, num #carrega o valor de num para calcular a raiz quadrada
 	jal raizquadrada
 	
 	
@@ -18,6 +18,6 @@ main: #inicio
 raizquadrada:
 	lw $t0,res
 	
-
+	jr $ra
 
 exit: #FIM
