@@ -8,7 +8,8 @@ res: .space
 .globl main
 
 main: #inicio
-	lw $a0, num #carrega o valor de num para calcular a raiz quadrada
+	la $t0, num #carrega o valor de num para calcular a raiz quadrada
+	lw $a0, 0($t0)
 	jal raizquadrada
 	
 	
