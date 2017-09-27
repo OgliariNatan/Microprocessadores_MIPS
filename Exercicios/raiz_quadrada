@@ -11,19 +11,19 @@ resl: .space 1
 main: #inicio
 	la $t0, num #carrega o valor de num para calcular a raiz quadrada
 	lw $a0, 0($t0)
-	jal raizquadrada
+	jal raizquadrada #chama a função
 	
 	
 	
-	j exit
+	j exit #vai para o final do programa
 
 raizquadrada:
 	la $t1,res
 	lw $s0, 0($t1)
 	la $t2,bit
-	lw $
+	lw $s1, 0($t2)
 	
 	move $v0, $s0
-	jr $ra
+	jr $ra #retorna para a main
 
 exit: #FIM
