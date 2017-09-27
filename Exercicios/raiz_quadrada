@@ -2,8 +2,8 @@
 .data 0x10008000
 num: .word 2
 res: .word 0
+bit: .word 0
 resl: .space 1 
-
 
 .text
 .globl main
@@ -18,8 +18,12 @@ main: #inicio
 	j exit
 
 raizquadrada:
+	la $t1,res
+	lw $s0, 0($t1)
+	la $t2,bit
+	lw $
 	
-	
+	move $v0, $s0
 	jr $ra
 
 exit: #FIM
