@@ -1,7 +1,7 @@
 #Raiz quadrada
 .data 0x10008000
-natan: .word 7
-teste: .space 1
+num: .word 2
+res: .space 
 
 
 
@@ -9,10 +9,13 @@ teste: .space 1
 .globl main
 
 main: #inicio
+	lw $a0, num
+	jal raizquadrada
+	
+	j exit
 
-
-
-
+raizquadrada: 
+	
 
 
 exit: #FIM
