@@ -6,12 +6,19 @@ vetOrdenado:	.word 1, 76, 4, 9
 countI:		.word 0
 countJ:		.word 0
 aux:		.word 0
+str:		.asciiz "FIM"
 .text
 	la $t0, vetOrdenado # inicialização do vetor
 	li $t4, 4 # qtd = 4 ( 4 elementos do vetor)
 	lw $t1, countI # i = 0
 	lw $t3, aux # aux = 0
 	jal bubbleSort # chamada da função
+	
+	#INICIO: printa "FIM"
+	li $v0, 4
+	la $a0, str
+	syscall
+	#FIM: printa "FIM"
 	j end
 		
 bubbleSort:
