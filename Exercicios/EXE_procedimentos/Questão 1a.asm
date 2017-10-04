@@ -1,3 +1,6 @@
+#Autor: Natan Ogliari
+#Calculo da raiz quadrada
+
 .data 0x10008000 
 string:	.asciiz	"Digite um valor para calcular a raiz:"	
 str:	.asciiz "A raiz é: "		
