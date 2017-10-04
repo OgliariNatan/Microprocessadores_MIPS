@@ -8,16 +8,22 @@ str:	.asciiz "A raiz é: "
 			
 	li $v0, 4			#printa string
 	la $a0, string			# "   "   "
-syscall
+	syscall
 	li $v0, 5			#pede valor ao usuario e armazena em v0
-syscall
+	syscall
 	move $t0,$v0 
 
 	jal funcraiz			#chamada da funcao raiz
 	move $a0, $v0
 
+	#INICIO implementar aqui o "a raiz é:"
+	li $v0, 4			#printa string
+	la $a0, str			# "   "   "
+	syscall
+	#FIM implementar aqui o "a raiz é:"
+	
 	li $v0, 1
-syscall
+	syscall
 	j endfuncraiz
 	
 funcraiz:
