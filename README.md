@@ -4,4 +4,4 @@
 <p>Para a simulação da arquetetura MIPS, esta sendo utilizado o software <a href="http://courses.missouristate.edu/KenVollmar/mars/">MARS</a>. <br/> </p>
 <h2> Parametros de definições: </h2>
 <p> Endereço base=0x10008000 <br/>
-.space</p>
+</p>
