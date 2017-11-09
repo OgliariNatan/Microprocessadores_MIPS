@@ -16,9 +16,8 @@ pergunta: .asciiz "Entre com um valor \n"
 
         li $v0, 6 #Prepara para leitura
         syscall
-        move   $t0, $v0    #  =  
+        move   $t0, $v0    #  =
 
   mult:
-
-
-  fim:
+  
+  end:
