@@ -12,13 +12,21 @@
 	pilha_rpn: #.word 10, 9, 8, 7, 6, 5, 4, 3, 2, 1
 
 .text
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> 2ba8c996d7fef61ee5b50355a6e67d36344fada5
 	#la $a0,pilha_rpn
 	jal rpn
 
 	li $v0, 4				#Imprime a divisão para uma nova tela
 	la $a0, fim
+<<<<<<< HEAD
 	syscall
+=======
+	syscall			
+>>>>>>> 2ba8c996d7fef61ee5b50355a6e67d36344fada5
 
 	li $v0, 10
 	syscall
@@ -33,19 +41,33 @@
 		#t3=temporario
 		#t4=temporario
 		#t5=temporario
+<<<<<<< HEAD
 		#t6=temporario
 		#t7=inicio da pilha	dos termos armazenados
 
 
 		add $t0, $zero, $zero 	#zera o numero de termos na pilha
+=======
+		#t6=temporario	
+		#t7=inicio da pilha	dos termos armazenados
+		
+
+		add $t0, $zero, $zero 	#zera o numero de termos na pilha		
+>>>>>>> 2ba8c996d7fef61ee5b50355a6e67d36344fada5
 		add $sp, $sp, -4		#coloca em t1 o endreço do proximo termo a ser armazenado
 		add $t1, $sp, $zero 	#salva o endereço do stack pointer em t1
 		sw $ra, 0($t1)			#salva o endereço de retorno na pilha
 		add $t0, $t0, 1			#incremente o número de termos da pilha
 		add $sp, $sp, -4
+<<<<<<< HEAD
 		add $t1, $sp, $zero		#Atualiza o valor de t1 com o end do prox termo a ser armazenado
 		add $t7, $t1, $zero
 		#sw $zero, 0($t1)	#Deixa o último endereço gravado com zero pra nao ter perigo
+=======
+		add $t1, $sp, $zero		#Atualiza o valor de t1 com o end do prox termo a ser armazenado		
+		add $t7, $t1, $zero		
+		#sw $zero, 0($t1)	#Deixa o último endereço gravado com zero pra nao ter perigo		
+>>>>>>> 2ba8c996d7fef61ee5b50355a6e67d36344fada5
 
 
 		###CONSIDERAÇÕES
@@ -92,7 +114,11 @@
 
 			li $v0, 4				#Imprime a divisão para uma nova tela
 			la $a0, nova_tela
+<<<<<<< HEAD
 			syscall
+=======
+			syscall			
+>>>>>>> 2ba8c996d7fef61ee5b50355a6e67d36344fada5
 
 			la $a0,buffer_entrada_teclado
 			li $a1,32
@@ -104,8 +130,13 @@
 				add $t6, $a0, $zero		#Copia para t6 o endereço da str de entrada
 				lbu $t5, 0($t6)			#Grava em t5 o primeiro byte
 
+<<<<<<< HEAD
 				blt $t5, 48, sinal_deco
 				bgt $t5, 57, sinal_deco
+=======
+				blt $t5, 48, sinal_deco	
+				bgt $t5, 57, sinal_deco 
+>>>>>>> 2ba8c996d7fef61ee5b50355a6e67d36344fada5
 
 				#Ação para número
 					#Incrementa a pilha_rpn com o novo termo
@@ -119,8 +150,13 @@
 						add $t6, $t6, 1
 						lbu $t5, 0($t6)			#Grava em t5 o proximo byte
 						beq $t5, $zero, empilha_ndec #Caso tenha chego o fim da str, empilha
+<<<<<<< HEAD
 						blt $t5, 48, empilha_ndec
 						bgt $t5, 57, empilha_ndec
+=======
+						blt $t5, 48, empilha_ndec	
+						bgt $t5, 57, empilha_ndec 
+>>>>>>> 2ba8c996d7fef61ee5b50355a6e67d36344fada5
 						j conv_str_int
 					#fim conv_str_int
 
@@ -138,6 +174,7 @@
 					sinal_deco:
 						#Opera e decrementa a pilha_rpn
 						add $t2, $t1, $zero #Copia o endereço do ultimo termo da pilha
+<<<<<<< HEAD
 						lw $t6, 4($t2)		#Segundo termo (termo n)
 
 						beq $t5, 33, sinal_fatorial
@@ -152,6 +189,22 @@
 						beq $t5, 47, sinal_divisao
 						beq $t5, 94, sinal_potencia
 
+=======
+						lw $t6, 4($t2)		#Segundo termo (termo n)						
+
+						beq $t5, 33, sinal_fatorial	
+						beq $t5, 64, fim_rpn
+						blt $t0, 3, pilha_vazia						
+						
+						lw $t3, 8($t2)		#Primeiro termo (termo n-1)						
+
+						beq $t5, 42, sinal_multiplicacao
+						beq $t5, 43, sinal_adicao						
+						beq $t5, 45, sinal_subtracao
+						beq $t5, 47, sinal_divisao						
+						beq $t5, 94, sinal_potencia
+											
+>>>>>>> 2ba8c996d7fef61ee5b50355a6e67d36344fada5
 
 						sinal_multiplicacao:
 							mul $t4, $t3, $t6
@@ -204,7 +257,11 @@
 									lw $a0, 0($sp)
 									lw $ra, 4($sp)
 									mul $v0,$v0,$a0
+<<<<<<< HEAD
 									jr $ra
+=======
+									jr $ra	
+>>>>>>> 2ba8c996d7fef61ee5b50355a6e67d36344fada5
 							#fim sinal_fatorial_rec
 						#fim sinal_fatorial
 						empilha_op:
@@ -218,7 +275,11 @@
 						empilha_fac:
 							sw $t4, 4($t1)		#Como não é necessário desalocar a pilha, a operação se resume a isso
 							j imprime_pilha
+<<<<<<< HEAD
 						#fim empilha_fac
+=======
+						#fim empilha_fac							
+>>>>>>> 2ba8c996d7fef61ee5b50355a6e67d36344fada5
 
 						j imprime_pilha
 					#fim sinal_deco
@@ -228,9 +289,15 @@
 					pilha_vazia:
 						li $v0, 4				#Imprime a msg de erro pilha vazia
 						la $a0, pilha_vazia_msg
+<<<<<<< HEAD
 						syscall
 
 						j entrada_teclado
+=======
+						syscall		
+
+						j entrada_teclado						
+>>>>>>> 2ba8c996d7fef61ee5b50355a6e67d36344fada5
 					#fim pilha_vazia
 				#fim controle de errros
 			#fim bloco de decodificação
@@ -244,3 +311,21 @@
 		lw $ra, 4($t1)		#Recupera ra especificamente em 4(t1) pois a posição zero é destinada para o proximo termo
 		add $sp, $sp, 8		#Zera a pilha
 		jr $ra
+<<<<<<< HEAD
+=======
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+		
+>>>>>>> 2ba8c996d7fef61ee5b50355a6e67d36344fada5
