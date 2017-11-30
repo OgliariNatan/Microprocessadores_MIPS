@@ -6,10 +6,11 @@
 
 <h2>Trabalho Final</h2>
 <p>
-  
-  
-  
-  
+  Consiste na manipulação de imagens, com as seguintes funções:
+    <ul>
+      <li> [ZOOM] Utilizando as entradas do teclado '+'e'-'.</li>
+      <li> [SLIDE] Utilizando as 'setas', para deslocar a imagem. </li>
+    </ul>    
 </p>
 
 <h3> Parametros de definições: </h3>
