@@ -40,13 +40,13 @@ li   $v0, 16       	# system call for close file
 move $a0, $s6      	# file descriptor to close
 syscall            	# close file
 
+la $s0, buff		# s0 = &buffer
+addi $s0, $s0, 54	# offset cabeçalho
+
 # ajusta cor imagem (adiciona 0)
 subi $s5, $s5, 54 	# numero de bytes arq - cabeçalho
 div $s5, $s5, 3		# $s5 = numero de words
 
-la $s0, buff		# s0 = &buffer
-addi $s0, $s0, 54	# offset cabeçalho
-
 la $s1, imagem		# s1 = &imagem
 
-li $s4, 0		# i = 0
+#li $s4, 0		# i = 0
